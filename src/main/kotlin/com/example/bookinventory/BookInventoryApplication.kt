@@ -1,29 +1,17 @@
 package com.example.bookinventory
 
 import javafx.application.Application
-import javafx.fxml.FXMLLoader
 import javafx.geometry.Insets
-import javafx.scene.Group
 import javafx.scene.Scene
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.layout.VBox
 import javafx.stage.Stage
-import java.util.*
-
-data class Book(
-    val id: String,
-    val title: String,
-    val author: String?,
-    val date: Date?,
-    val volumes: Int?,
-    val pages: Int?)
 
 class BookInventoryApplication : Application() {
     private val table = TableView<Book>()
-    override fun start(stage: Stage) {
-        val fxmlLoader = FXMLLoader(BookInventoryController::class.java.getResource("hello-view.fxml"))
 
+    override fun start(stage: Stage) {
         stage.title = "Book Inventory"
         // ensure that the extra space in table column header will be distributed among columns
         table.columnResizePolicy = TableView.CONSTRAINED_RESIZE_POLICY
@@ -43,7 +31,7 @@ class BookInventoryApplication : Application() {
             volumesCol,
             pagesCol
         )
-
+        // set up view box
         val viewBox = VBox()
         viewBox.spacing = 5.0
         viewBox.padding = Insets(20.0, 10.0, 0.0, 10.0)
