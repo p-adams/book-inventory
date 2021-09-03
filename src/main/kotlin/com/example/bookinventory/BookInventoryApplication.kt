@@ -25,20 +25,31 @@ class BookInventoryApplication : Application() {
         val fxmlLoader = FXMLLoader(BookInventoryController::class.java.getResource("hello-view.fxml"))
 
         stage.title = "Book Inventory"
-
-
+        // ensure that the extra space in table column header will be distributed among columns
+        table.columnResizePolicy = TableView.CONSTRAINED_RESIZE_POLICY
         table.isEditable = true
         // columns
-        val idCol = TableColumn<Book, String>("1")
+        val idCol = TableColumn<Book, String>("Id")
         val titleCol = TableColumn<Book, String>("Title")
-        table.columns.addAll(idCol, titleCol)
+        val authorCol = TableColumn<Book, String>("Author")
+        val publicationDateCol = TableColumn<Book, String>("Date")
+        val volumesCol = TableColumn<Book, String>("Volumes")
+        val pagesCol = TableColumn<Book, String>("Pages")
+        table.columns.addAll(
+            idCol,
+            titleCol,
+            authorCol,
+            publicationDateCol,
+            volumesCol,
+            pagesCol
+        )
 
         val viewBox = VBox()
         viewBox.spacing = 5.0
-        viewBox.padding = Insets(10.0, 0.0, 0.0, 10.0)
+        viewBox.padding = Insets(20.0, 10.0, 0.0, 10.0)
         viewBox.children.addAll(table)
 
-        val scene = Scene(viewBox, 320.0, 240.0)
+        val scene = Scene(viewBox, 600.0, 500.0)
         stage.scene = scene
         stage.show()
     }
