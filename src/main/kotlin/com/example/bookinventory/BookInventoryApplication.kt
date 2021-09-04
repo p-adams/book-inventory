@@ -12,6 +12,7 @@ class BookInventoryApplication : Application() {
     private val table = TableView<Book>()
 
     override fun start(stage: Stage) {
+        val bookInventory = BookInventoryController()
         stage.title = "Book Inventory"
         // ensure that the extra space in table column header will be distributed among columns
         table.columnResizePolicy = TableView.CONSTRAINED_RESIZE_POLICY

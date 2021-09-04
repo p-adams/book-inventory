@@ -1,14 +1,12 @@
 package com.example.bookinventory
 
-import javafx.fxml.FXML
-import javafx.scene.control.Label
 
-class BookInventoryController {
-    @FXML
-    private lateinit var welcomeText: Label
 
-    @FXML
-    private fun onHelloButtonClick() {
-        welcomeText.text = "Welcome to JavaFX Application!"
+class BookInventoryController() {
+    private val books = mutableListOf<Book>()
+    fun addBook(book: Book) {
+        books.add(book)
     }
+    // todo convert book list to JSON to enable data import
+    fun bookListToJson() {}
 }
