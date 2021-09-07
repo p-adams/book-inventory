@@ -9,4 +9,7 @@ class BookInventoryController() {
     }
     // todo convert book list to JSON to enable data import
     fun bookListToJson() {}
+
+
+    fun loadBookInventoryCsv() {}
 }
